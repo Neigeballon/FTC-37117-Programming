@@ -65,29 +65,27 @@ public class BasicRobotOpMode extends LinearOpMode {
 
             // Intake control (e.g., press A button)
             
-            if (gamepad2.left_bumper) {
-                intakeMotor.setPower(1.0);
-            } else {
-                intakeMotor.setPower(0.0);
-            }
-            if (gamepad2.left_trigger) {
+            if (gamepad2.left_trigger > 0.1) {
                 intakeMotor.setPower(-1.0);
-            } else {
-                intakeMotor.setPower(0.0);
+            }
+            else if (gamepad2.left_bumper) {
+                intakeMotor.setPower(1.0);
+            }
+            else {
+                intakeMotor.setPower(0.0)
             }
 
             // Shooter control (e.g., hold B button)
-            if (gamepad2.right_bumper) {
-                shooterMotor.setPower(1.0);
-            } else {
-                shooterMotor.setPower(0.0);
-            }
-             if (gamepad2.right_trigger) {
+           
+            if (gamepad2.right_trigger > 0.1) {
                 shooterMotor.setPower(-1.0);
-            } else {
-                shooterMotor.setPower(0.0);
             }
-
+            else if (gamepad2.right_bumper) {
+                shooterMotor.setPower(1.0);
+            }
+            else {
+                shooterMotor.setPower(0.0)
+            }
 
             // Send telemetry data back to the Driver Station
             telemetry.addData("Left Pwr", leftPower);
