@@ -3,7 +3,7 @@ package org.wpilib.templates.opmode;
 import org.wpilib.framework.OpModeRobot;
 import org.wpilib.hardware.ArcadeDrivetrain; 
 import org.wpilib.hardware.RobotJoystick;
-import org.wpilib.hardware.Motor; // Added the missing semicolon here!
+import org.wpilib.hardware.Motor;
 
 /**
  * The methods in this class are called automatically as described in the OpModeRobot documentation.
