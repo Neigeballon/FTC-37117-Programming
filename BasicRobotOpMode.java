@@ -57,6 +57,9 @@ public class BasicRobotOpMode extends LinearOpMode {
             double drive = -gamepad1.left_stick_y;
             double turn  =  gamepad1.right_stick_x;
 
+            if (Math.abs(drive) < 0.05) drive = 0;
+            if (Math.abs(turn) < 0.05) turn = 0;
+
             double leftPower  = rangeClip(drive + turn);
             double rightPower = rangeClip(drive - turn);
 
