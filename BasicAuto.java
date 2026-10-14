@@ -28,7 +28,14 @@ public class BasicAuto extends LinearOpMode {
         telemetry.update();
         waitForStart();
 
-        if (opModeIsActive()) {}
+        if (opModeIsActive()) {
+            //Add movements here in the format:
+            leftDrive.setPower(1.0);
+            rightDrive.setPower(1.0);
+            sleep(2000); //This determines how long it will be active.
+            leftDrive.setPower(0.0);
+            rightDrive.setPower(0.0);
+        }
         
     }
 }
