@@ -18,7 +18,7 @@ public class MyTeleop extends PeriodicOpMode {
     double forwardSpeed = robot.joystick.getY()*speedMultiplier;
     double turnSpeed = robot.joystick.getX()*speedMultiplier;
     robot.drive.arcadeDrive(-robot.joystick.getY(), robot.joystick.getX());
-    if(robot.joystick.getRawButton(5)){
+    if(robot.joystick.getRawButton(4)){
       speedMultiplier = 0.5;
     }
     else{
