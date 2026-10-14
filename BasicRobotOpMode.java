@@ -39,7 +39,7 @@ public class BasicRobotOpMode extends LinearOpMode {
             boolean currentState = gamepad1.a;
 
             // Detect if the button was just pressed (transitioned from unpressed to pressed)
-            if (currentAState && !lastAState) {
+            if (currentState && !lastState) {
             doesMultiply = !doesMultiply; // Flip the state (true becomes false, false becomes true)
             }
 
