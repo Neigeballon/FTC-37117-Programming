@@ -72,7 +72,7 @@ public class BasicRobotOpMode extends LinearOpMode {
                 intakeMotor.setPower(1.0);
             }
             else {
-                intakeMotor.setPower(0.0)
+                intakeMotor.setPower(0.0);
             }
 
             // Shooter control (e.g., hold B button)
@@ -84,7 +84,7 @@ public class BasicRobotOpMode extends LinearOpMode {
                 shooterMotor.setPower(1.0);
             }
             else {
-                shooterMotor.setPower(0.0)
+                shooterMotor.setPower(0.0);
             }
 
             // Send telemetry data back to the Driver Station
