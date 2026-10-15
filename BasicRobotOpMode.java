@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;//IS THE MOTOR A DC MOTOR? IF NOT, LOOK UP WHAT TO DO!!!
 //CHECK TO SEE IF THE LEFT AND RIGHT MOTORS WORK IN REVERSE OR NOT!!!
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
