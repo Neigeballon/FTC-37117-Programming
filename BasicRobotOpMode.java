@@ -13,6 +13,9 @@ public class BasicRobotOpMode extends LinearOpMode {
     private DcMotor rightDrive = null;
     private DcMotor intakeMotor = null;
     private DcMotor shooterMotor = null;
+    private CRServo servo1Intake = null;
+    private CRServo servo2Intake = null;
+    private CRServo servoShooter = null;
     private double speedMultiplier = 1.0;
     private boolean doesMultiply = false;
     private boolean lastState = false;
@@ -24,6 +27,9 @@ public class BasicRobotOpMode extends LinearOpMode {
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         intakeMotor = hardwareMap.get(DcMotor.class, "intake_motor");
         shooterMotor = hardwareMap.get(DcMotor.class, "shooter_motor");
+        servo1Intake = hardwareMap.get(CRServo.class, "servo_intake1");
+        servo2Intake = hardwareMap.get(CRServo.class, "servo_intake2");
+        servoShooter = hardwareMap.get(CRServo.class, "servo_shooter");
 
         // Set motor directions if needed (e.g., reverse one side of the drive)
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
@@ -91,45 +97,6 @@ public class BasicRobotOpMode extends LinearOpMode {
                 shooterMotor.setPower(0.0);
             }
 
-            // Send telemetry data back to the Driver Station
-            telemetry.addData("Left Pwr", leftPower);
-            telemetry.addData("Right Pwr", rightPower);
-            telemetry.addData("Intake Power", intakeMotor.getPower());
-            telemetry.addData("Shooter Power", shooterMotor.getPower());
-            telemetry.update();
-        }
-    }
-
-    // Helper method to keep motor power values between -1.0 and 1.0
-    private double rangeClip(double value) {
-        return Math.max(-1.0, Math.min(1.0, value));
-    }
-}
-@TeleOp(name = "CR Servos", group = "Linear OpMode")
-public class CRServos extends LinearOpMode {
-
-    // 1. Declare your servo object
-    private CRServo servo1Intake = null;
-    private CRServo servo2Intake = null;
-    private CRServo servoShooter = null;
-
-    @Override
-    public void runOpMode() {
-
-        // 2. Initialize the servo using the hardware map 
-        // The string "servo_claw" MUST match the name in your Driver Hub configuration exactly!
-        servo1Intake = hardwareMap.get(CRServo.class, "servo_intake1");
-        servo2Intake = hardwareMap.get(CRServo.class, "servo_intake2");
-        servoShooter = hardwareMap.get(CRServo.class, "servo_shooter");       
-
-        telemetry.addData("Status", "Initialized");
-        telemetry.update();
-
-        waitForStart();
-
-        while (opModeIsActive()) {
-            
-            // 3. Control the servo using Gamepad inputs
             if (gamepad2.left_trigger > 0.1) {
                 servo1Intake.setPower(-1.0);
                 servo2Intake.setPower(-1.0);
@@ -153,13 +120,19 @@ public class CRServos extends LinearOpMode {
                 servoShooter.setPower(0.0);
             }
 
-            // 4. Send the current position to telemetry for troubleshooting
-            telemetry.addData("Servo1Intake Position", servo1Intake.getPower());
-            telemetry.addData("Servo2Intake Position", servo2Intake.getPower());
-            telemetry.addData("ServoShooter Position", servoShooter.getPower());
+            // Send telemetry data back to the Driver Station
+            telemetry.addData("Left Pwr", leftPower);
+            telemetry.addData("Right Pwr", rightPower);
+            telemetry.addData("Intake Power", intakeMotor.getPower());
+            telemetry.addData("Shooter Power", shooterMotor.getPower());
+            telemetry.addData("Servo1Intake Power", servo1Intake.getPower());
+            telemetry.addData("Servo2Intake Power", servo2Intake.getPower());
+            telemetry.addData("ServoShooter Power", servoShooter.getPower());
             telemetry.update();
         }
     }
+
+    // Helper method to keep motor power values between -1.0 and 1.0
     private double rangeClip(double value) {
         return Math.max(-1.0, Math.min(1.0, value));
     }
