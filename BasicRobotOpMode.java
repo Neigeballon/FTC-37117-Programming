@@ -107,8 +107,8 @@ public class BasicRobotOpMode extends LinearOpMode {
             }
 
             // Send telemetry data back to the Driver Station
-            telemetry.addData("Left Pwr", leftPower);
-            telemetry.addData("Right Pwr", rightPower);
+            telemetry.addData("Left Power", leftPower);
+            telemetry.addData("Right Power", rightPower);
             telemetry.addData("Intake Power", intakeMotor.getPower());
             telemetry.addData("Shooter Power", shooterMotor.getPower());
             telemetry.addData("Servo1Intake Power", servo1Intake.getPower());
