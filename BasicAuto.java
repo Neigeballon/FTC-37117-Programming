@@ -24,9 +24,9 @@ public class BasicAuto extends LinearOpMode {
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         intakeMotor = hardwareMap.get(DcMotor.class, "intake_motor");
         shooterMotor = hardwareMap.get(DcMotor.class, "shooter_motor");
-        servo1Intake = hardwareMap.get(CRServo.class, "servo_Intake1");
-        servo2Intake = hardwareMap.get(CRServo.class, "servo_Intake2");
-        servoShooter = hardwareMap.get(CRServo.class, "servo_Shooter");
+        servo1Intake = hardwareMap.get(CRServo.class, "servo_intake1");
+        servo2Intake = hardwareMap.get(CRServo.class, "servo_intake2");
+        servoShooter = hardwareMap.get(CRServo.class, "servo_shooter");
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
