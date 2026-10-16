@@ -1,7 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
@@ -13,6 +13,9 @@ public class BasicAuto extends LinearOpMode {
     private DcMotor rightDrive = null;
     private DcMotor intakeMotor = null;
     private DcMotor shooterMotor = null;
+    private CRServo servo1Intake = null;
+    private CRServo servo2Intake = null;
+    private CRServo servoShooter = null;
 
     @Override
     public void runOpMode() {
@@ -21,6 +24,9 @@ public class BasicAuto extends LinearOpMode {
         rightDrive = hardwareMap.get(DcMotor.class, "right_drive");
         intakeMotor = hardwareMap.get(DcMotor.class, "intake_motor");
         shooterMotor = hardwareMap.get(DcMotor.class, "shooter_motor");
+        servo1Intake = hardwareMap.get(CRServo.class, "servo1Intake");
+        servo2Intake = hardwareMap.get(CRServo.class, "servo2Intake");
+        servoShooter = hardwareMap.get(CRServo.class, "servoShooter");
 
         leftDrive.setDirection(DcMotor.Direction.FORWARD);
         rightDrive.setDirection(DcMotor.Direction.REVERSE);
