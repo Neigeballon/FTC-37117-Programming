@@ -77,46 +77,32 @@ public class BasicRobotOpMode extends LinearOpMode {
             
             if (gamepad2.left_trigger > 0.1) {
                 intakeMotor.setPower(-1.0);
+                servo1Intake.setPower(-1.0);
+                servo2Intake.setPower(-1.0);
             }
             else if (gamepad2.left_bumper) {
                 intakeMotor.setPower(1.0);
+                servo1Intake.setPower(1.0);
+                servo2Intake.setPower(1.0);
             }
             else {
                 intakeMotor.setPower(0.0);
+                servo1Intake.setPower(0.0);
+                servo2Intake.setPower(0.0);
             }
 
             // Shooter control (e.g., hold B button)
            
             if (gamepad2.right_trigger > 0.1) {
                 shooterMotor.setPower(-1.0);
-            }
-            else if (gamepad2.right_bumper) {
-                shooterMotor.setPower(1.0);
-            }
-            else {
-                shooterMotor.setPower(0.0);
-            }
-
-            if (gamepad2.left_trigger > 0.1) {
-                servo1Intake.setPower(-1.0);
-                servo2Intake.setPower(-1.0);
-            } 
-            else if (gamepad2.left_bumper) {
-                servo1Intake.setPower(1.0);
-                servo2Intake.setPower(1.0);
-            } 
-            else {
-                servo1Intake.setPower(0.0);
-                servo2Intake.setPower(0.0);
-            }
-
-            if (gamepad2.right_trigger > 0.1) {
                 servoShooter.setPower(-1.0);
             }
             else if (gamepad2.right_bumper) {
+                shooterMotor.setPower(1.0);
                 servoShooter.setPower(1.0);
             }
             else {
+                shooterMotor.setPower(0.0);
                 servoShooter.setPower(0.0);
             }
 
